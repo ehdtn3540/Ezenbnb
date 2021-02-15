@@ -1,0 +1,197 @@
+@charset "EUC-KR";
+
+@font-face {
+	src: url("../fonts/AirbnbCereal-Medium.ttf");
+	font-family: "cereal"
+}
+
+.upperMenu {
+	display: inline-block;
+	height: 80px;
+	width: 100%;
+	padding-bottom: 10px;
+	border-bottom: 2px solid #bcbcbc;
+}
+
+#logo {
+	margin-left: 20px;
+	font-family: "cereal";
+	color: rgb(255, 56, 92);
+	float: left;
+}
+
+#logo>img {
+	width: 30px;
+	height: 40px;
+}
+
+#menu1 {
+	width: 80%;
+	height: 100%;
+	display: inline-block;
+}
+
+#menu1>#tab {
+	margin-left: 20px;
+	width: 60%;
+	float: left;
+	margin-top: 20px;
+}
+
+#tit {
+	width: 10%;
+	background: gray;
+	float: left;
+}
+
+#menu2 {
+	display: inline-block;
+	text-align: right;
+	width: 20%;
+	float: right;
+	margin-top: 27px;
+}
+
+.dropdown {
+	float: right;
+	margin-right: 100px;
+}
+
+.wrap {
+	display: block;
+	text-align: center;
+}
+
+.wrap_host1 {
+	width: 60%;
+	height: 100%;
+	margin: auto;
+	display: inline-block;
+}
+
+#main1 {
+	margin-top: 20px;
+	text-align: left;
+	width: 65%;
+	float: left;
+}
+
+#main2 {
+	margin-left: 10px;
+	text-align: left;
+	width: 30%;
+	float: right;
+}
+
+.wrap_msg {
+	display: inline-block;
+	width: 100%;
+	height: 100%;
+}
+
+.wrap_msg1 {
+	width: 15%;
+	height: 100%;
+	float: left;
+}
+
+.wrap_msg2 {
+	padding : 5%;
+	width: 85%;
+	height: 100%;
+	float: right;
+}
+
+.wrap_house {
+	display: inline-block;
+	width: 100%;
+}
+
+#wrap_search {
+	padding: 10px;
+	display: inline-block;
+	width: 100%;
+}
+
+#wrap_house1 {
+	width: 10%;
+	float: left;
+}
+
+#wrap_house2 {
+	width: 90%;
+	float: right;
+}
+
+#wrap_house3 {
+	width: 100%;
+}
+
+#img_table {
+	width: 71px;
+	height: 47px;
+}
+
+#Lightning {
+	color: yellow;
+}
+
+.wrap_review {
+	margin: auto;
+	width: 70%;
+	background: aqua;
+	margin: auto;
+}
+
+#wrap_review2 {
+	width: 100%;
+	display: inline-block;
+}
+
+#wrap_review3 {
+	width: 60%;
+	float: left;
+}
+
+#wrap_review4 {
+	width: 40%;
+	background: fuchsia;
+	float: right;
+}
+
+#grade>svg {
+	color: yellow;
+}
+
+.wrap_enroll {
+	display: inline-block;
+	width: 100%;
+	height: 100%;
+	display: inline-block;
+}
+
+.wrap_enroll2 {
+	margin-top: 50px;
+	width: 30%;
+	float: left;
+	padding-left: 50px;
+}
+.wrap_enroll3{
+	margin-top: 50px;
+	width: 40%;
+	float: left;
+}
+
+.count {
+	width: 250px;
+	height: 46px;
+}
+
+#btn_post, #subbtn {
+	width: 250px;
+	height: 46px;
+	margin-top: 20px;
+}
+.select_img img{
+	margin:20px 0;
+}

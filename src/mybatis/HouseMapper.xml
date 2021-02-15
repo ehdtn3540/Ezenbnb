@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mybatis.HouseMapper">
+	<select id="getHouseOne" parameterType="java.lang.String" resultType="HouseDTO">
+		<![CDATA[
+	         SELECT * FROM E_HOUSE
+	         WHERE hIDX=#{hidx}
+     	]]>
+	</select>
+	<select id="getHouseList" parameterType="java.lang.String" resultType="HouseDTO">
+		<![CDATA[
+	         SELECT * FROM E_HOUSE
+	         WHERE hCATG LIKE #{catg}
+     	]]>
+	</select>
+	<select id="getLikeyList" parameterType="java.lang.Integer" resultType="LikeyDTO">
+		<![CDATA[
+			SELECT A.hIDX, A.hNAME, A.hIMAGE, A.hFACILITY, A.hBED, A.hBAT, A.hCATG, A.hADDRESS, B.lIDX
+			FROM E_HOUSE A
+			JOIN E_LIKEY B
+			ON A.hIDX=B.hIDX
+			AND B.mIDX =#{midx}
+     	]]>
+	</select>
+	<delete id="deleteLikey" parameterType="java.lang.Integer">
+	    <![CDATA[
+	         DELETE E_LIKEY WHERE lIDX=#{lidx}
+	    ]]>
+    </delete>
+    <insert id="insertLikey" parameterType="LikeyDTO2">
+		<![CDATA[
+			INSERT INTO E_LIKEY(lIDX, mIDX, hIDX) 
+			VALUES (seq_lidx.nextval, #{midx}, #{hidx})
+		]]>
+	</insert>
+	<insert id="insertHouse" parameterType="HouseDTO">
+		<![CDATA[
+			INSERT INTO E_HOUSE(hIDX, mIDX, hNAME, hCATG, hADDRESS, hPHONE, hIMAGE, hFACILITY, hPRICE, hBED, hBAT, hPERSON, hUTILL) 
+			VALUES (seq_hidx.nextval, #{midx}, #{hname}, #{hcatg}, #{haddress}, #{hphone}, #{himage}, #{hfacility}, #{hprice}, #{hbed}, #{hbat}, #{hperson}, #{hutill})
+		]]>
+	</insert>
+	<select id="getHostingList" parameterType="java.lang.Integer" resultType="HouseDTO">
+		<![CDATA[
+	         SELECT * FROM E_HOUSE
+	         WHERE mIDX LIKE #{midx}
+     	]]>
+	</select>
+	<delete id="delHosting" parameterType="java.lang.Integer">
+	    <![CDATA[
+	         DELETE E_HOUSE WHERE hIDX=#{hidx}
+	    ]]>
+    </delete>
+    <select id="getHouseSearch" parameterType="java.lang.String" resultType="HouseDTO">
+		<![CDATA[
+	         SELECT * FROM E_HOUSE
+			 WHERE hNAME LIKE '%'||#{search}||'%'
+			 OR hADDRESS LIKE '%'||#{search}||'%'
+			 OR hCATG LIKE '%'||#{search}||'%'
+     	]]>
+	</select>
+	<select id="getHouseUtillList" parameterType="java.lang.String" resultType="HouseDTO2">
+		<![CDATA[
+	         SELECT *
+			 FROM E_HOUSE, E_UTILL
+			 WHERE hUTILL = #{utill} and uIDX = #{utill}
+     	]]>
+	</select>
+</mapper>

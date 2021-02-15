@@ -1,0 +1,274 @@
+@charset "EUC-KR";
+
+@font-face {
+	src: url("../fonts/AirbnbCereal-Medium.ttf");
+	font-family: "cereal"
+}
+
+.upperMenu {
+	display: inline-block;
+	height: 80px;
+	width: 100%;
+	padding-bottom: 10px;
+	border-bottom: 2px solid #bcbcbc;
+}
+
+#logo {
+	margin-left: 20px;
+	font-family: "cereal";
+	color: rgb(255, 56, 92);
+	float: left;
+}
+
+#logo>img {
+	width: 30px;
+	height: 40px;
+}
+
+.wrap {
+	float: right;
+	margin-right: 100px;
+	margin-top: 27px;
+}
+
+.wrap_like {
+	display: inline-block;
+}
+
+.wrap_like1 {
+	display: inline-block;
+	width: 40%;
+	height: 100%;
+	background: gray;
+}
+
+.wrap_item {
+	width: 792px;
+	height: 200px;
+	background: aqua;
+	margin: 20px;
+	display: block;
+}
+
+.item_info {
+	background: fuchsia;
+	width: 40%;
+	height: 100%;
+	float: left;
+}
+
+.wrap_item>img {
+	height: 200px;
+	width: 300px;
+	float: left;
+}
+
+#wrap_item2 {
+	height: 100%;
+	background: green;
+	float: right;
+}
+
+#like {
+	text-align: right;
+	height: 90%;
+	color: red;
+	background: lime;
+}
+
+#price {
+	height: 10%;
+}
+
+.map {
+	width: 60px;
+	height: 100%;
+	background: blue;
+}
+
+#wrap_ac {
+	text-align: center;
+}
+
+.wrap_account {
+	display: inline-block;
+	width: 70%;
+	margin: auto;
+	text-align: left;
+}
+
+.wrap_account1 {
+	margin: 15px;
+	float: left;
+	width: 30%;
+}
+
+.panel-body>.content {
+	height: 60px;
+}
+
+#wrap_personal {
+	display: inline-block;
+	width: 70%;
+	margin-left: 15%;
+	margin-right: 15%;
+}
+
+.wrap_pers {
+	float: left;
+	width: 70%;
+	margin: auto;
+}
+
+.wrap_pers2 {
+	margin: 20px;
+}
+
+.wrap_pers2>input {
+	width: 300px;
+}
+
+.wrap_pers3 {
+	width: 30%;
+	float: right;
+}
+
+#wrap_security {
+	display: inline-block;
+	width: 70%;
+	margin-left: 15%;
+	margin-right: 15%;
+
+}
+
+.wrap_security1 {
+	float: left;
+	width: 70%;
+	margin: auto;
+
+}
+
+.wrap_security2 {
+	margin: 10px;
+}
+
+.wrap_security3 {
+	width: 30%;
+	float: right;
+
+}
+
+.wrap_likey1 {
+	width: 100%;
+	display: inline-block;
+
+}
+
+.wrap_likey2 {
+	width: 50%;
+	float: left;
+}
+
+.wrap_likey3 {
+	padding-left: 20px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	width: 100%;
+	font-family: "cereal";
+	font: bold;
+	font-size:24pt; 
+}
+
+#wrap_likey4 {
+	margin: 20px;
+}
+
+#wrap_likey5 {
+	display: inline-block;
+}
+
+#likey_img {
+	width: 40%;
+	float: left;
+}
+
+#likey_img img {
+	width: 300px;
+	height: 200px;
+	border-radius: 15px
+}
+
+#wrap_likey_info {
+	margin-left: 10px;
+	margin-top: 10px;
+	padding-left: 30px;
+	width: 37%;
+	float: left;
+	display: block;
+}
+#info_price{
+	font-family: "cereal";
+	font-size:16pt;
+}
+#wrap_likey_info strong {
+	font-family: "cereal";
+	font-size: 20pt;
+}
+
+#likey_icon {
+	width: 5%;
+	float: right;
+	color: rgb(255, 56, 92);
+}
+#likey_icon a:visited{
+	text-decoration: none !important;
+	color: rgb(255, 56, 92);
+}
+#likey_icon a:hover{
+	text-decoration: none !important;
+	color: rgb(255, 56, 92);
+}
+#likey_icon a:link{
+	text-decoration: none !important;
+	color: rgb(255, 56, 92);
+}
+
+#google-map {
+	width: 800px;
+	height: 800px;
+}
+.wrap_receipt{
+	width : 80%;
+	margin: auto;
+	padding-top: 5%;	
+}
+.wrap_msg {
+	display: inline-block;
+	width: 100%;
+	height: 100%;
+}
+
+.wrap_msg1 {
+	width: 15%;
+	height: 100%;
+	float: left;
+}
+
+.wrap_msg2 {
+	padding : 5%;
+	width: 85%;
+	height: 100%;
+	float: right;
+	display: block;
+}
+#msg_received{
+	padding-right:40%;
+	float: left;
+}
+#msg_outgoing{
+	padding-left:40%;
+	float: Right;
+}
+#outgoing_body{
+	text-align: right;
+}

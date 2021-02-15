@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mybatis.UserMapper">
+	<!-- 로그인(계정찾기) -->
+	<select id="getUser" parameterType="UserDTO" resultType="UserDTO">
+		<![CDATA[
+	         SELECT * FROM E_USER WHERE userID=#{userid} AND uPW=#{upw}
+     	]]>
+	</select>
+	<select id="getAutoLoginUser" parameterType="UserDTO"
+		resultType="UserDTO">
+		<![CDATA[
+			SELECT * FROM E_USER WHERE userID=#{mid}
+		]]>
+	</select>
+	<!-- 회원 등록 -->
+	<insert id="insertUser" parameterType="UserDTO">
+		<![CDATA[
+			INSERT INTO E_USER(uIDX, userID, uPW, uNAME, uBIRTH) 
+			VALUES (seq_uidx.nextval, #{userid}, #{upw}, #{uname}, #{ubirth})
+		]]>
+	</insert>
+
+	<!-- 회원 리스트 -->
+	<select id="getUserList" resultType="UserDTO">
+		<![CDATA[
+			SELECT * FROM E_USER
+		]]>
+	</select>
+	
+	<!-- 블랙 리스트 -->
+	<select id="getBlackList" resultType="UserDTO">
+		<![CDATA[
+			SELECT * FROM E_USER WHERE uTYPE='3'
+		]]>
+	</select>
+	
+	<!-- 블랙리스트 해제 -->
+	<update id="blacklistUpdate" parameterType="UserDTO">
+	    <![CDATA[
+	         UPDATE E_USER SET uTYPE='1' WHERE uIDX=#{uidx}
+	    ]]>
+	</update>
+	
+	<!-- 블랙리스트 설정 -->
+	<update id="blacklistUpdate2" parameterType="UserDTO">
+	    <![CDATA[
+	         UPDATE E_USER SET uTYPE='3' WHERE uIDX=#{uidx}
+	    ]]>
+	</update>
+</mapper>

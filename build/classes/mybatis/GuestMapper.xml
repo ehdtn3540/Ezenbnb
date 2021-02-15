@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mybatis.GuestMapper">
+	<select id="getGuestName" parameterType="java.lang.String"
+		resultType="java.lang.String">
+		<![CDATA[
+	         SELECT uNAME FROM E_USER
+	         WHERE userID=#{id}
+     	]]>
+	</select>
+	<select id="getPersonalinfo" parameterType="java.lang.String"
+		resultType="UserDTO">
+		<![CDATA[
+	         SELECT * FROM E_USER
+	         WHERE userID=#{id}
+     	]]>
+	</select>
+	<update id="personalmodify" parameterType="UserDTO">
+		<![CDATA[
+			UPDATE E_USER
+			SET uNAME=#{uname}, uBIRTH=#{ubirth}, userID=#{userid}, uPHONE=#{uphone}, uADDRESS=#{uaddress}, uEMERG=#{uemerg}
+			WHERE uIDX=#{uidx}
+		]]>
+	</update>
+</mapper>

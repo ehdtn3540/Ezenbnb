@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mybatis.AccountMapper">
+	<insert id="AccountInsert" parameterType="AccountDTO">
+		<![CDATA[			
+	        INSERT INTO E_ACCOUNT(aIDX, mIDX, hIDX, aCHECKIN, aCHECKOUT, aPERSON, aPRICE, aCARD, aCARDNUM, aEXDATE, aCVV, aPOSTNUM, aAREA) 
+			VALUES(seq_aidx.nextval, #{midx}, #{hidx}, #{acheckin}, #{acheckout}, #{aperson}, #{aprice}, #{acard}, #{acardnum}, #{aexdate}, #{acvv}, #{apostnum}, #{aarea})
+     	]]>
+	</insert>
+	<select id="getReservList" parameterType="java.lang.Integer" resultType="ReservDTO">
+		<![CDATA[
+			SELECT A.aIDX, A.mIDX, A.aSTATE, A.aAREA, A.aCHECKIN, A.aCHECKOUT, B.hNAME
+			FROM E_ACCOUNT A
+			JOIN E_HOUSE B
+			ON A.hIDX=B.hIDX
+			AND A.mIDX =#{midx}
+     	]]>
+	</select>
+	<select id="getPreApprvList" parameterType="java.lang.Integer" resultType="PreApprvDTO">
+		<![CDATA[
+			SELECT A.userID,
+				B.aIDX,
+				B.aDATE,
+				B.aCHECKIN,
+				B.aCHECKOUT,
+				B.aPERSON,
+				B.aPRICE,
+				C.hIMAGE,
+				C.hNAME 
+			FROM E_USER A
+			INNER JOIN E_ACCOUNT B
+				ON A.uIDX = B.mIDX
+			INNER JOIN E_HOUSE C
+				ON B.hIDX = C.hIDX
+			WHERE C.mIDX LIKE #{midx} AND B.aSTATE LIKE '대기중'
+     	]]>
+	</select>
+	<select id="getApprvdList" parameterType="java.lang.Integer" resultType="PreApprvDTO">
+		<![CDATA[
+			SELECT A.userID,
+				B.aIDX,
+				B.aDATE,
+				B.aCHECKIN,
+				B.aCHECKOUT,
+				B.aPERSON,
+				B.aPRICE,
+				C.hIMAGE,
+				C.hNAME 
+			FROM E_USER A
+			INNER JOIN E_ACCOUNT B
+				ON A.uIDX = B.mIDX
+			INNER JOIN E_HOUSE C
+				ON B.hIDX = C.hIDX
+			WHERE C.mIDX LIKE #{midx} AND B.aSTATE LIKE '승인완료'
+     	]]>
+	</select>
+	<update id="apprvUpdate" parameterType="AccountDTO">
+		<![CDATA[
+			UPDATE E_ACCOUNT
+			SET aSTATE='승인완료'
+			WHERE aIDX=#{aidx}
+		]]>
+	</update>
+	<update id="declineUpdate" parameterType="AccountDTO">
+		<![CDATA[
+			UPDATE E_ACCOUNT
+			SET aSTATE='승인거절'
+			WHERE aIDX=#{aidx}
+		]]>
+	</update>
+	<select id="getReqList1" parameterType="java.lang.Integer" resultType="AccountDTO">
+		<![CDATA[
+			SELECT A.aSTATE
+			FROM E_ACCOUNT A
+			INNER JOIN E_HOUSE B
+				ON A.hIDX = B.hIDX
+			WHERE B.mIDX LIKE #{midx} AND A.aSTATE LIKE '대기중'
+     	]]>
+	</select>
+	<select id="getReqList2" parameterType="java.lang.Integer" resultType="AccountDTO">
+		<![CDATA[
+			SELECT A.aSTATE
+			FROM E_ACCOUNT A
+			INNER JOIN E_HOUSE B
+				ON A.hIDX = B.hIDX
+			WHERE B.mIDX LIKE #{midx} AND A.aSTATE LIKE '승인완료'
+     	]]>
+	</select>
+	<select id="getReceipt" parameterType="java.lang.Integer" resultType="ReceiptDTO">
+		<![CDATA[
+			SELECT A.aDATE,
+				A.aIDX,
+				A.aPERSON,
+				A.aCHECKIN,
+				A.aCHECKOUT,
+				A.aPRICE,
+				A.aCARD,
+				A.aCARDNUM,
+				B.hCATG,
+				B.hNAME,
+				B.hADDRESS
+			FROM E_ACCOUNT A
+			INNER JOIN E_HOUSE B
+				ON A.hIDX = B.hIDX
+			WHERE A.aIDX LIKE #{aidx}
+     	]]>
+	</select>
+</mapper>
